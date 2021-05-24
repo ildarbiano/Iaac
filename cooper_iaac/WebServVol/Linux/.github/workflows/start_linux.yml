@@ -12,9 +12,9 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
     #build: # This workflow contains a single job called "build"
-    terraform-actions:
-    name: Workflow
-    runs-on: ubuntu-latest # The type of runner that the job will run on
+    terraform_actions:        # идентификатор job_id, который нужно связать с заданием 
+     name: Workflow           # Название задания, отображаемое на GitHub
+     runs-on: ubuntu-latest   # The type of runner that the job will run on
     
     steps: # Steps represent a sequence of tasks that will be executed as part of the job
       - name: Checkout Repository
