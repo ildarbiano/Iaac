@@ -24,14 +24,14 @@ jobs:
       with:
         terraform_version: 0.12.8
 
-    - name: Terraform Init
-      id: init
+    - name: Terraform Init            #---Если вы не укажете, в качестве name-имени шага по умолчанию будет использоваться текст, указанный в run-команде
+      id: init                        #---идентификатор для ссылки на step в контексте кода
       run: terraform init
-      continue-on-error: true
+      continue-on-error: true         #---true - разрешит выполнение задания при сбое этого шага
 
     - name: Terraform Validate
       id: validate
-      run: terraform validate -no-color
+      run: terraform validate -no-color   #--- -no-color????????????
       continue-on-error: true
 
     - name: Terraform Plan
@@ -42,5 +42,5 @@ jobs:
 
     - name: Terraform Apply
       id: apply
-      run: terraform apply -auto-approve -no-color
+      run: terraform apply -auto-approve -no-color      #--- -auto-approve -no-color????????????????
       continue-on-error: true
