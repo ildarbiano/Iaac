@@ -1,21 +1,13 @@
 name: Start-Linux-AWS-server
-on:
- # Triggers the workflow on push or pull request events but only for the master branch
- # push:
- #   branches: [ master ]
- # pull_request:
- #   branches: [ master ]
- # вместо тригеров, рабочий процесс workflow будет запускаться вручную
-  workflow_dispatch: # Allows to run this workflow manually from the Actions tab
-
+on: workflow_dispatch           #-Allows to run this workflow manually from the Actions tab
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
     #build: # This workflow contains a single job called "build"
-    terraform_actions:        # идентификатор job_id, который нужно связать с заданием 
+    terraform_actions:         # идентификатор job_id, который нужно связать с заданием 
       name: Workflow           # Название задания, отображаемое на GitHub
       runs-on: ubuntu-latest   # The type of runner that the job will run on
     
-    steps: # Steps represent a sequence of tasks that will be executed as part of the job
+      steps: # Steps represent a sequence of tasks that will be executed as part of the job
       - name: Checkout Repository
       - uses: actions/checkout@master                          #--Проверяет ваш репозиторий в $ GITHUB_WORKSPACE, чтобы ваша работа могла получить к нему доступ
       
