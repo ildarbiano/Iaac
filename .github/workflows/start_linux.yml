@@ -1,8 +1,7 @@
 name: Start-Linux-AWS-server
 on: workflow_dispatch           #-Allows to run this workflow manually from the Actions tab
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-    #build: # This workflow contains a single job called "build"
+jobs:    
   terraform_actions:       # идентификатор job_id, который нужно связать с заданием 
     name: Start Server Job   # Название задания, отображаемое на GitHub
     runs-on: ubuntu-latest   # The type of runner that the job will run on
