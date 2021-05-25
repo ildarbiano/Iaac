@@ -26,7 +26,8 @@ resource "aws_instance" "server_wind" {
     Name = "Windows WS Volume"
     }
     
-/*# Bootstraping is commands for automaticle start/ EOF-end of file
+/*
+ Bootstraping is commands for automaticle start/ EOF-end of file
 # it's shell script
    user_data = <<EOF
 #!/bin/bash
@@ -36,7 +37,8 @@ myip= 'curl http://169.254.169.254/latest/meta-data/local-ipv4'                 
 echo "<h2>WebServer with IP: $myip</h2><br>Build by Terraform!!!" > /var/www/html/index.html        #echo the phrase in this file of the web server
 sudo service httpd start                          #start Apache server
 chkconfig httpd on                                #command for restart with Apache
-EOF*/
+EOF
+*/
 }
 
 resource "aws_security_group" "window_ws_rdp" {

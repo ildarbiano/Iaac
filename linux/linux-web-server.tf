@@ -17,17 +17,19 @@ resource "aws_instance" "server_linux" {
     Name = "Linux WebServ Volume"
     }
 
-# Bootstraping is commands for automaticle start/ EOF-end of file
-# it's shell script
-   user_data = <<EOF
+/*
+/*-Bootstraping is commands for automaticle start/ EOF-end of file
+it's shell script
+   user_data = <<-EOF
 #!/usr/bin/bash
-sudo yum -y update                                #update linux
-sudo yum -y install httpd                         #install Apache web server             
+sudo yum -y update                                                                                              #update linux
+sudo yum -y install httpd                                                                                       #install Apache web server             
 myip= 'curl http://169.254.169.254/latest/meta-data/local-ipv4'                                                                    #read local AWS IP-address of server
 echo "<h2>WebServer with IP: $myip</h2><br>Build by Terraform on Linux AWS, changed of myself!!!" > /var/www/html/index.html       #echo the phrase in this file of the web server
-sudo service httpd start                          #start Apache server
-chkconfig httpd on                                #command for restart with Apache
+sudo service httpd start                                                                                         #start Apache server
+chkconfig httpd on                                                                                               #command for restart with Apache
 EOF
+*/
 }
 
 resource "aws_security_group" "linux_web_server" {
