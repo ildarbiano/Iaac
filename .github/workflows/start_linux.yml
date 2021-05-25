@@ -40,3 +40,10 @@ jobs:
       id: apply
       run: terraform apply -auto-approve -no-color      #--- -auto-approve -no-color????????????????
       continue-on-error: true
+      
+  terraform_finish:       # идентификатор job_id, который нужно связать с заданием 
+    name: Finish Server Job   # Название задания, отображаемое на GitHub
+    runs-on: ubuntu-latest   # The type of runner that the job will run on
+    steps: # Steps represent a sequence of tasks that will be executed as part of the job
+    - name:  Print hello message
+      run : echo "See and check on AWS new Server"                      
