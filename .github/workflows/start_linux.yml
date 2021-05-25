@@ -2,49 +2,51 @@ name: Start-Linux-AWS-server
 on: workflow_dispatch           #-Allows to run this workflow manually from the Actions tab
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:    
-  terraform_actions:       # идентификатор job_id, который нужно связать с заданием 
-    name: Start Server Job   # Название задания, отображаемое на GitHub
-    runs-on: ubuntu-latest   # The type of runner that the job will run on
-    steps: # Steps represent a sequence of tasks that will be executed as part of the job
-    - name: Checkout Repository                              #--клонирует репозиторий в контейненр runner
+  terraform_actions:            # идентификатор job_id, который нужно связать с заданием 
+    name: Задание по запуску AWS Linux                      # Название задания, отображаемое на GitHub
+    runs-on: ubuntu-latest      # The type of runner that the job will run on
+    steps:                      # Steps represent a sequence of tasks that will be executed as part of the job
+    - name: Checkout клонирование Repository в контейненр runner                           
       uses: actions/checkout@master                          #--Проверяет ваш репозиторий в $ GITHUB_WORKSPACE, чтобы ваша работа могла получить к нему доступ
       
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1         #--
+    - name: Проверяет/Запрашивает AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1         #--??????
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
       
-    - name: Setup Terraform
+    - name: Setup настройка Terraform
       uses: hashicorp/setup-terraform@v1
       with:
         terraform_version: 0.12.8
           
-    - name: Terraform Init
+    - name: Terraform Init (1)
       id: init
       run: terraform init
       continue-on-error: true
 
-    - name: Terraform Validate
+    - name: Terraform Validate Подтверждает                             #----как?
       id: validate
       run: terraform validate -no-color
       continue-on-error: true
         
-    - name: Terraform Plan
+    - name: Terraform Plan (2)
       id: plan
       run: terraform plan -no-color
       continue-on-error: true
 
-    - name: Terraform Apply
+    - name: Terraform Apply (3)
       id: apply
       run: terraform apply -auto-approve -no-color      #--- -auto-approve -no-color????????????????
       continue-on-error: true
       
-  terraform_finish:       # идентификатор job_id, который нужно связать с заданием 
-    name: Finish Server Job   # Название задания, отображаемое на GitHub
-    runs-on: ubuntu-latest   # The type of runner that the job will run on
-    needs: terraform_actions
-    steps: # Steps represent a sequence of tasks that will be executed as part of the job
-    - name:  Print hello message
-      run : echo "See and check on AWS new Server"                      
+  terraform_finish:           # идентификатор job_id, который нужно связать с заданием 
+    name: Finish, Заключительная надпись!   # Название задания, отображаемое на GitHub
+    runs-on: ubuntu-latest    # The type of runner that the job will run on
+    needs: terraform_actions  # depends = run sequentially
+    steps: 
+    - name:  Print message
+      run : |
+        echo Теперь можно проверить запуск
+        echo сервера AWS Linux
