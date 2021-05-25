@@ -44,6 +44,7 @@ jobs:
   terraform_finish:       # идентификатор job_id, который нужно связать с заданием 
     name: Finish Server Job   # Название задания, отображаемое на GitHub
     runs-on: ubuntu-latest   # The type of runner that the job will run on
+    needs: terraform_actions
     steps: # Steps represent a sequence of tasks that will be executed as part of the job
     - name:  Print hello message
       run : echo "See and check on AWS new Server"                      
