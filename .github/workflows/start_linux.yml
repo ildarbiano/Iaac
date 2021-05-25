@@ -10,7 +10,7 @@ jobs:
       
     steps:                      # Steps represent a sequence of tasks that will be executed as part of the job
     - name: Checkout клонирование Repository в контейненр runner                           
-      uses: ./linux/actions/checkout@master                 #--Проверяет ваш репозиторий в $ GITHUB_WORKSPACE, чтобы ваша работа могла получить к нему доступ
+      uses: actions/checkout@master                 #--Проверяет ваш репозиторий в $ GITHUB_WORKSPACE, чтобы ваша работа могла получить к нему доступ
             
     - name: Проверяет/Запрашивает AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1         #--??????
