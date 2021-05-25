@@ -4,23 +4,23 @@ on: workflow_dispatch           #-Allows to run this workflow manually from the 
 jobs:
     #build: # This workflow contains a single job called "build"
   terraform_actions:       # идентификатор job_id, который нужно связать с заданием 
-  name: Start Server Job   # Название задания, отображаемое на GitHub
-  runs-on: ubuntu-latest   # The type of runner that the job will run on
-  steps: # Steps represent a sequence of tasks that will be executed as part of the job
+    name: Start Server Job   # Название задания, отображаемое на GitHub
+    runs-on: ubuntu-latest   # The type of runner that the job will run on
+    steps: # Steps represent a sequence of tasks that will be executed as part of the job
     - name: Checkout Repository
       uses: actions/checkout@master                          #--Проверяет ваш репозиторий в $ GITHUB_WORKSPACE, чтобы ваша работа могла получить к нему доступ
       
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1         #--
       with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
       
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
-          terraform_version: 0.12.8
+        terraform_version: 0.12.8
           
     - name: Terraform Init
       id: init
@@ -29,15 +29,15 @@ jobs:
 
     - name: Terraform Validate
       id: validate
-        run: terraform validate -no-color
-        continue-on-error: true
+      run: terraform validate -no-color
+      continue-on-error: true
         
-      - name: Terraform Plan
-        id: plan
-        run: terraform plan -no-color
-        continue-on-error: true
+    - name: Terraform Plan
+      id: plan
+      run: terraform plan -no-color
+      continue-on-error: true
 
-      - name: Terraform Apply
-        id: apply
-        run: terraform apply -auto-approve -no-color      #--- -auto-approve -no-color????????????????
-        continue-on-error: true
+    - name: Terraform Apply
+      id: apply
+      run: terraform apply -auto-approve -no-color      #--- -auto-approve -no-color????????????????
+      continue-on-error: true
