@@ -5,12 +5,12 @@ jobs:
   terraform_actions:            # идентификатор job_id, который нужно связать с заданием 
     name: Задание по запуску AWS Linux                      # Название задания, отображаемое на GitHub
     runs-on: ubuntu-latest      # The type of runner that the job will run on
-    env: 
-      working-directory: ./linux
+#    env: 
+#     working-directory: ./linux
       
     steps:                      # Steps represent a sequence of tasks that will be executed as part of the job
     - name: Checkout клонирование Repository в контейненр runner                           
-      uses: actions/checkout@master                 #--Проверяет ваш репозиторий в $ GITHUB_WORKSPACE, чтобы ваша работа могла получить к нему доступ
+      uses: actions/checkout@v2                 #--Проверяет ваш репозиторий в $ GITHUB_WORKSPACE, чтобы ваша работа могла получить к нему доступ
             
     - name: Проверяет/Запрашивает AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1         #--??????
