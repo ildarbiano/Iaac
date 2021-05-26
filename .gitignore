@@ -1,0 +1,8 @@
+linux/.terraform.lock.hcl
+linux/.terraform/
+linux/terraform.tfstate
+linux/terraform.tfstate.backup
+windows/.terraform.lock.hcl
+windows/.terraform/
+windows/terraform.tfstate
+windows/terraform.tfstate.backup

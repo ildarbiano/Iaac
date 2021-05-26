@@ -2,10 +2,18 @@
 provider "aws" {
     region="us-east-1"
 }
-
+/*Find latest AMI ID for AWS.Linux for any region where the instance start*/
+data "aws_ami" "latest_aws_linux_ami" {
+  most_recent = true
+  owners = ["137112412989"]
+  filter {
+    name = "name"
+    values = ["amzn2-ami-hvm-2.0.*"]
+  }
+}
 resource "aws_instance" "server_linux" {
     count = 1
-    ami = "ami-0725f44e9849ec1b7"  #AMI of Linux AWS 
+    ami = data.aws_ami.latest_aws_linux_ami.id  #AMI of Linux AWS 
     instance_type = "t2.micro"
     tags = {
     Name = "Linux AWS"

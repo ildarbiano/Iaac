@@ -2,15 +2,23 @@
 provider "aws" {
     region="us-east-1"
 }
-
+/*Find latest AMI ID for Windows for any region where the instance start*/
+data "aws_ami" "latest_aws_windows_rus_ami" {         #AMI of Microsoft Windows Server 2019 Base
+  most_recent = true
+  owners = ["801119661308"]
+  filter {
+    name = "name"
+    values = ["Windows_Server-2019-Russian-Full-Base-*"]
+  }
+}
 resource "aws_instance" "server_wind" {
     count = 1
-    ami = "ami-0bbfeb6eccdd084e1"  #AMI of Microsoft Windows Server 2016 Base
+    ami = data.aws_ami.latest_aws_windows_rus_ami.id  #AMI of Microsoft Windows Server 2019 Base
     instance_type = "t2.micro"
     key_name = "terraform-key"
     security_groups = ["${aws_security_group.window_ws_rdp.name}"]
     tags = {
-    Name = "Windows Serv 2016"
+    Name = "Windows Serv 2019 Russian"
     Owner = "BIV"
     Project = "terraform L_web_serv"
     }
