@@ -33,7 +33,7 @@ jobs:
           echo deploy your project.
       
       - name: Checkout и клонирует Repository в контейненр runner       
-        uses: actions/checkout@master                         #--команда для Default: ${{ github.repository }}
+        uses: actions/checkout@v2                         #--команда для Default: ${{ github.repository }}
         with: 
 #          repository: "${{ env.REPOSITORY_PATH }}"
            path: ildarbiano/iaac/linux      
