@@ -16,10 +16,7 @@ jobs:
   basic_test:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./linux
-    
+       
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -35,6 +32,8 @@ jobs:
       
       - name: Checkout и клонирует Repository в контейненр runner       
         uses: actions/checkout@master                         #--команда
+      - name: Use local директорию
+        uses: ./linux
         
       - name: List текущий репозиторий files и мы можем совершать над ними действия
         run: ls -la
