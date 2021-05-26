@@ -2,7 +2,7 @@
 
 name: My_Github_Action_basic
 env:
-  REPOSITORY_PATH: "${{ github.workspace == github.ildarbiano.iaac.linux }}"
+  REPOSITORY_PATH: "${{ github.workspace == ildarbiano/iaac/linux }}"
 
 # Controls when the action will run. 
 on:
