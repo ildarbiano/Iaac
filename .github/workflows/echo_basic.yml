@@ -1,6 +1,8 @@
 # This is a basic workflow to help you get started with Actions
 
 name: My_Github_Action_basic
+env:
+  REPOSITORY_PATH: "${{ github.workspace == github.ildarbiano.iaac.linux }}"
 
 # Controls when the action will run. 
 on:
@@ -33,9 +35,8 @@ jobs:
       - name: Checkout и клонирует Repository в контейненр runner       
         uses: actions/checkout@master                         #--команда для Default: ${{ github.repository }}
         with: 
-          repository: ${{ github.repository.linux }}  
-          path: 'ildarbiano/iaac/linux'
-        
+          repository: "${{ env.REPOSITORY_PATH }}"
+                 
       - name: List текущий репозиторий files и мы можем совершать над ними действия
         run: ls -la
           
