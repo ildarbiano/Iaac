@@ -34,11 +34,14 @@ jobs:
       # Steps represent a sequence of tasks that will be executed as part of the job
   
 
-      - name: WorkSpace
+      - name: GH WorkSpace
         run: echo $GITHUB_WORKSPACE
         
-      - name: MyPath
+      - name: GH Path
         run: echo $GITHUB_PATH
+        
+      - name: GH Environment Variable
+        run: echo $GITHUB_ENV
         
       
       - name: Checkout и клонирует Repository в контейненр runner       
