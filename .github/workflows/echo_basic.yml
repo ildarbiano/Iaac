@@ -48,7 +48,8 @@ jobs:
         uses: actions/checkout@v2                         #--команда для Default: ${{ github.repository }}
         with: 
 #          repository: "${{ env.REPOSITORY_PATH }}"
-           path: ildarbiano/iaac/linux      
+#           path: ildarbiano/iaac/linux    
+          repository: '/iaac/linux/'
       - name: List текущий репозиторий files и мы можем совершать над ними действия
         run: ls -la
           
