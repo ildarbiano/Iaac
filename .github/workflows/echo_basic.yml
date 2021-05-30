@@ -31,6 +31,11 @@ jobs:
         run: |                                                 #---разделитель -pipe, позволяющий продолжить писать код с новой строки
           echo Add other actions to build, test, and
           echo deploy your project.
+      # Steps represent a sequence of tasks that will be executed as part of the job
+  
+      # Runs a single command using the runners shell
+      - name: Run запуск a multi-line script
+        run: echo $GITHUB_WORKSPACE
       
       - name: Checkout и клонирует Repository в контейненр runner       
         uses: actions/checkout@v2                         #--команда для Default: ${{ github.repository }}
