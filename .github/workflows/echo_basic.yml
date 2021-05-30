@@ -43,6 +43,9 @@ jobs:
       - name: GH Environment Variable
         run: echo $GITHUB_ENV
         
+#      - name: Add GH .....
+#        echo "$PATH./linux/" >> $GITHUB_PATH
+      
       
       - name: Checkout и клонирует Repository в контейненр runner       
         uses: actions/checkout@v2                       #--команда для Default: ${{ github.repository }}
