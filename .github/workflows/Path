@@ -1,0 +1,2 @@
+
+- run: echo $GITHUB_WORKSPACE
