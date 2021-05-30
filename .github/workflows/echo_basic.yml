@@ -49,7 +49,7 @@ jobs:
         with: 
 #          repository: "${{ env.REPOSITORY_PATH }}"
 #           path: ildarbiano/iaac/linux    
-          repository: '/iaac/linux/'
+          repository: 'ildarbiano/iaac/linux/'
       - name: List текущий репозиторий files и мы можем совершать над ними действия
         run: ls -la
           
