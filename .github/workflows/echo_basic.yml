@@ -49,11 +49,16 @@ jobs:
       
       - name: CheckOut-проверяет и клонирует Repository в контейненр runner       
         uses: actions/checkout@v2                       #--команда для Default: ${{ github.repository }}
-        with: 
-          repository: "${{ github.repository }}/linux"
+#        with: 
+#          repository: "${{ github.repository }}/linux"
 #           path: ildarbiano/iaac/linux    
 #         repository: '{ildarbiano}/{iaac/linux/}'
       - name: List текущий репозиторий files и мы можем совершать над ними действия
+        run: ls -la
+        
+      - name: Переход в директорию Репозитория
+        run: cd ./linux/
+      - name: Проерка содержимого
         run: ls -la
           
   basic_deploy:
