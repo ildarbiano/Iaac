@@ -47,7 +47,7 @@ jobs:
 #        echo "$PATH./linux/" >> $GITHUB_PATH
       
       
-      - name: Checkout и клонирует Repository в контейненр runner       
+      - name: CheckOut-проверяет и клонирует Repository в контейненр runner       
         uses: actions/checkout@v2                       #--команда для Default: ${{ github.repository }}
         with: 
           repository: "${{ github.repository }}/linux"
