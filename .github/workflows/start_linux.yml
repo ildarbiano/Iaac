@@ -11,8 +11,8 @@ jobs:
     steps:                      # Steps represent a sequence of tasks that will be executed as part of the job
     - name: Checkout-клонирование Repository в контейненр runner                           
       uses: actions/checkout@v2                 #--Проверяет ваш репозиторий в $ GITHUB_WORKSPACE, чтобы ваша работа могла получить к нему доступ
-    - name: Путь для действия "клонирования в контейнер"
-      uses: ./linux
+#    - name: Путь для действия "клонирования в контейнер"
+#      uses: ./linux
  #     with: './linux'
 #      repository: '$ {{github.repository}}'
             
