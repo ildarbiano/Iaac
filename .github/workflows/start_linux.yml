@@ -27,6 +27,7 @@ jobs:
       uses: hashicorp/setup-terraform@v1
       with:
         terraform_version: 0.12.8
+        repository: "${{ github.repository }}/linux"
           
     - name: Terraform Init (1)
       id: init
