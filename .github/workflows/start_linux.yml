@@ -13,15 +13,16 @@ jobs:
       uses: actions/checkout@v2                 #--Проверяет ваш репозиторий в $ GITHUB_WORKSPACE, чтобы ваша работа могла получить к нему доступ
 #    - name: Путь для действия "клонирования в контейнер"
 #      uses: ./linux
- #     with: './linux'
-#      repository: '$ {{github.repository}}'
+#      with: 
+#        path:'/home/runner/work/iaac/iaac/linux'
+#        repository: '$ {{github.repository}}'
             
     - name: Проверяет/Запрашивает AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1         #--??????
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
+        aws-region: ${{ secrets.AWS_REGION }}
       
     - name: Setup настройка Terraform
       uses: hashicorp/setup-terraform@v1
