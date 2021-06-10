@@ -14,9 +14,10 @@ jobs:
     steps:                      # Steps represent a sequence of tasks that will be executed as part of the job
     - name: Checkout Repository в контейненр runner                           
       uses: actions/checkout@v2                 #--Проверяет ваш репозиторий в $ GITHUB_WORKSPACE, чтобы ваша работа могла получить к нему доступ
+      with:
+         path: /home/runner/work/iaac/iaac/linux
 #    - name: Путь для действия "клонирования в контейнер"
-#      uses: ./linux
- #     with: './linux'
+#      uses: '/home/runner/work/iaac/iaac/linux'
 #      repository: '$ {{github.repository}}'
     - name: List текущий репозиторий files и мы можем совершать над ними действия
       run: ls -la
