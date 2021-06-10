@@ -1,0 +1,31 @@
+name: Work_Space_and_Path
+on:
+  push: 
+    branches: 
+      - master 
+
+jobs:
+
+  1terraform_actions:           
+    name: Изучаем видимость
+    runs-on: ubuntu-latest      # The type of runner that the job will run on
+    env: 
+     working-directory: '/home/runner/work/iaac/iaac/linux/'
+      
+    steps:                      # Steps represent a sequence of tasks that will be executed as part of the job
+    - name: Checkout Repository в контейненр runner                           
+      uses: actions/checkout@v2                 #--Проверяет ваш репозиторий в $ GITHUB_WORKSPACE, чтобы ваша работа могла получить к нему доступ
+#    - name: Путь для действия "клонирования в контейнер"
+#      uses: ./linux
+ #     with: './linux'
+#      repository: '$ {{github.repository}}'
+    - name: List текущий репозиторий files и мы можем совершать над ними действия
+      run: ls -la
+      
+#  Workspace-path:
+    # The type of runner that the job will run on
+#    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+#    steps:
+      # Runs a single command using the runners shell
+#     - run: echo $GITHUB_WORKSPACE = /home/runner/work/iaac/iaac
