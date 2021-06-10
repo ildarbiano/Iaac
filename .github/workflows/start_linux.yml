@@ -16,6 +16,7 @@ jobs:
 #      with: 
 #        path:'/home/runner/work/iaac/iaac/linux'
 #        repository: '$ {{github.repository}}'
+#        repository: ildarbiano/iaac/linux
             
     - name: Проверяет/Запрашивает AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1         #--??????
