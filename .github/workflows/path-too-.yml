@@ -9,13 +9,13 @@ jobs:
     name: Изучаем видимость
     runs-on: ubuntu-latest      # The type of runner that the job will run on
     env: 
-     working-directory: '/home/runner/work/iaac/iaac/linux/'
+#     working-directory: '/home/runner/work/iaac/iaac/linux/'
       
     steps:                      # Steps represent a sequence of tasks that will be executed as part of the job
     - name: Checkout Repository в контейненр runner                           
       uses: actions/checkout@v2                 #--Проверяет ваш репозиторий в $ GITHUB_WORKSPACE, чтобы ваша работа могла получить к нему доступ
-      with:
-         path: /home/runner/work/iaac/iaac/linux
+#      with:
+#         path: /home/runner/work/iaac/iaac/linux
 #    - name: Путь для действия "клонирования в контейнер"
 #      uses: '/home/runner/work/iaac/iaac/linux'
 #      repository: '$ {{github.repository}}'
