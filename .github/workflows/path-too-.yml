@@ -17,7 +17,7 @@ jobs:
       with:
 #        path: /home/runner/work/iaac/iaac/linux
 #        repository: '$ {{github.repository}}'
-        repository: ildarbiano/iaac/linux
+        repository: ildarbiano/static_files
 #    - name: Путь для действия "клонирования в контейнер"
 #      uses: '/home/runner/work/iaac/iaac/linux'
 
