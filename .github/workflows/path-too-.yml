@@ -5,8 +5,7 @@ on:
       - master 
 
 jobs:
-
-  1terraform_actions:           
+  See_Prefix_Linux:           
     name: Изучаем видимость
     runs-on: ubuntu-latest      # The type of runner that the job will run on
     env: 
