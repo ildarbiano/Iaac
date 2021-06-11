@@ -1,4 +1,4 @@
-name: Work_Space_and_Path
+name: Work_with_Other_Repo
 on:
   push: 
     branches: 
@@ -22,6 +22,5 @@ jobs:
 
     - name: List текущий репозиторий files и мы можем совершать над ними действия
       run: ls -la
-    - name: Заглянем в директорию
-      run: ls linux  
+ 
 
