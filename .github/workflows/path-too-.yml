@@ -11,7 +11,7 @@ jobs:
 #    env: 
 #     working-directory: '/home/runner/work/iaac/iaac/linux/'
     steps:                      # Steps represent a sequence of tasks that will be executed as part of the job
-    - name: Checkout Repository в контейненр runner                           
+    - name: Checkout another Repository                       
       uses: actions/checkout@v2                 #--Проверяет ваш репозиторий в $ GITHUB_WORKSPACE, чтобы ваша работа могла получить к нему доступ
       with:
        repository: ildarbiano/static_files
@@ -20,7 +20,7 @@ jobs:
 #    - name: Путь для действия "клонирования в контейнер"
 #      uses: '/home/runner/work/iaac/iaac/linux'
 
-    - name: List текущий репозиторий files и мы можем совершать над ними действия
+    - name: List another Repo
       run: ls -la
  
 
