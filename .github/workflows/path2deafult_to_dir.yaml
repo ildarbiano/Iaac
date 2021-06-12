@@ -1,4 +1,4 @@
-name: Learn_start_Directjry
+name: Learn_start_Directory
 on: #workflow_dispatch
   push: 
     branches: 
