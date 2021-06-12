@@ -2,7 +2,7 @@ name: Learn_start_Directory
 on: #workflow_dispatch
   push: 
     branches: 
-      - main 
+      - master
 jobs:    
   terraform_actions:            
     name: Запускаем контейнер с машиной
@@ -17,7 +17,7 @@ jobs:
 #        path:'/home/runner/work/iaac/iaac/linux'
 #        repository: '$ {{github.repository}}'
 #        repository: ildarbiano/iaac/linux
-      - name: Проверяеи, что видит github и какой terraform может обрабатывать
+      - name: Проверяем, что видит github и какой terraform может обрабатывать
         run: ls -la
 
 #    - name: Проверяет/Запрашивает AWS Credentials
