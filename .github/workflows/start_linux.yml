@@ -1,25 +1,20 @@
 name: Start-Linux-AWS-server
-on: workflow_dispatch           #-Allows to run this workflow manually from the Actions tab
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+on: workflow_dispatch          
+
 jobs:    
-  terraform_actions:            # идентификатор job_id, который нужно связать с заданием 
-    name: Задание по запуску AWS Linux                      # Название задания, отображаемое на GitHub
-    runs-on: ubuntu-latest      # The type of runner that the job will run on
-#    env: 
-#     working-directory: './linux/'
-      
-    steps:                      # Steps represent a sequence of tasks that will be executed as part of the job
+  terraform_actions:           
+    name: Задание по запуску AWS Linux                   
+    runs-on: ubuntu-latest     
+
+    steps:                     
     - name: Checkout-клонирование Repository в контейненр runner                           
       uses: actions/checkout@v2                 #--Проверяет ваш репозиторий в $ GITHUB_WORKSPACE, чтобы ваша работа могла получить к нему доступ
-#    - name: Путь для действия "клонирования в контейнер"
-#      uses: ./linux
-#      with: 
-#        path:'/home/runner/work/iaac/iaac/linux'
-#        repository: '$ {{github.repository}}'
-#        repository: ildarbiano/iaac/linux
+      with: 
+        path: linux
+
             
     - name: Проверяет/Запрашивает AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1         #--??????
+      uses: aws-actions/configure-aws-credentials@v1        
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -36,7 +31,7 @@ jobs:
       run: terraform init
       continue-on-error: true
 
-    - name: Terraform Validate Подтверждает                             #----как?
+    - name: Terraform Validate Подтверждает                             
       id: validate
       run: terraform validate -no-color
       continue-on-error: true
@@ -48,15 +43,15 @@ jobs:
 
     - name: Terraform Apply (3)
       id: apply
-      run: terraform apply -auto-approve -no-color      #--- -auto-approve -no-color????????????????
+      run: terraform apply -auto-approve -no-color     
       continue-on-error: true
       
-  terraform_finish:           # идентификатор job_id, который нужно связать с заданием 
-    name: Finish, Заключительная надпись!   # Название задания, отображаемое на GitHub
-    runs-on: ubuntu-latest    # The type of runner that the job will run on
-    needs: terraform_actions  # depends = run sequentially
-    steps: 
-    - name:  Print message
-      run : |
-        echo Теперь можно проверить запуск
-        echo сервера AWS Linux
+#  terraform_finish:           # идентификатор job_id, который нужно связать с заданием 
+#    name: Finish, Заключительная надпись!   # Название задания, отображаемое на GitHub
+#    runs-on: ubuntu-latest    # The type of runner that the job will run on
+#    needs: terraform_actions  # depends = run sequentially
+#    steps: 
+#    - name:  Print message
+#      run : |
+#        echo Теперь можно проверить запуск
+#        echo сервера AWS Linux
