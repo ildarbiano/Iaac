@@ -4,7 +4,7 @@ terraform {
     
     bucket = "astra-simple-web-shop"
     region = "us-east-1"
-    key = "linuxWserver-backup/tfstate"
+    key = "linux_Web_Server.tfstate"
   }
 }
 
