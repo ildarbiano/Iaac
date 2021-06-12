@@ -12,12 +12,12 @@ jobs:
       - name: Checkout-клонирование Repository в контейненр с машиной                          
         uses: actions/checkout@v2                                                             #--default = $ GITHUB_WORKSPACE
       - name: Путь для действия "клонирования в контейнер"
-        uses: /ildarbiano/iaac/linux@master
-#        uses: ./linux               #---Error: Can't find 'action.yml', 'action.yaml' or 'Dockerfile' under '/home/runner/work/iaac/iaac/linux'. Did you forget to run actions/checkout before running your local action?
-#        with: 
-#        path:'/home/runner/work/iaac/iaac/linux'
+#        uses: /ildarbiano/iaac/linux@master     #---Error: Can't find 'action.yml', 'action.yaml' or 'Dockerfile' under '/home/runner/work/_actions/ildarbiano/iaac/master/linux'. Did you forget to run actions/checkout before running your local action?
+#        uses: ./linux                           #---Error: Can't find 'action.yml', 'action.yaml' or 'Dockerfile' under '/home/runner/work/iaac/iaac/linux'. Did you forget to run actions/checkout before running your local action?
+        with: 
+#        path:
 #        repository: '$ {{github.repository}}'
-#        repository: ildarbiano/iaac/linux
+          repository: ildarbiano/iaac/linux
       - name: Проверяем, что видит github и какой terraform может обрабатывать
         run: ls -la
 
