@@ -8,17 +8,17 @@ jobs:
     name: Запускаем контейнер с машиной
     runs-on: ubuntu-latest   
 
-  steps:                     
-    - name: Checkout-клонирование Repository в контейненр с машиной                          
-      uses: actions/checkout@v2                                                             #--default = $ GITHUB_WORKSPACE
+    steps:                     
+      - name: Checkout-клонирование Repository в контейненр с машиной                          
+        uses: actions/checkout@v2                                                             #--default = $ GITHUB_WORKSPACE
 #    - name: Путь для действия "клонирования в контейнер"
 #      uses: ./linux
 #      with: 
 #        path:'/home/runner/work/iaac/iaac/linux'
 #        repository: '$ {{github.repository}}'
 #        repository: ildarbiano/iaac/linux
-     - name: Проверяеи, что видит github и какой terraform может обрабатывать
-       run: ls -la
+      - name: Проверяеи, что видит github и какой terraform может обрабатывать
+        run: ls -la
 
 #    - name: Проверяет/Запрашивает AWS Credentials
 #      uses: aws-actions/configure-aws-credentials@v1         
