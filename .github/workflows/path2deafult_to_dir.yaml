@@ -17,8 +17,8 @@ jobs:
         with: 
 #        path:
 #        repository: '$ {{github.repository}}'
-#          repository: ildarbiano/iaac             #/linux---Error: Invalid repository 'ildarbiano/iaac/linux'. Expected format {owner}/{repo}.
-          path: linux/*      
+#          repository: ildarbiano/iaac/linux     #---Error: Invalid repository 'ildarbiano/iaac/linux'. Expected format {owner}/{repo}.
+          path: linux/linux                      #---        
       - name: Проверяем, что видит github и какой terraform может обрабатывать
         run: ls -la
 
