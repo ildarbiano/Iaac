@@ -11,9 +11,9 @@ jobs:
     steps:                     
       - name: Checkout-клонирование Repository в контейненр с машиной                          
         uses: actions/checkout@v2                                                             #--default = $ GITHUB_WORKSPACE
-#    - name: Путь для действия "клонирования в контейнер"
-#      uses: ./linux
-#      with: 
+      - name: Путь для действия "клонирования в контейнер"
+        uses: ./linux
+#        with: 
 #        path:'/home/runner/work/iaac/iaac/linux'
 #        repository: '$ {{github.repository}}'
 #        repository: ildarbiano/iaac/linux
