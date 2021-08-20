@@ -1,6 +1,4 @@
-# Build WebServer duting Booststrap
-
-/*Find latest AMI ID for AWS.Linux for any region where the instance start*/
+#--Find latest AMI ID for AWS.Linux for any region where the instance start
 data "aws_ami" "latest_aws_linux_ami" {
   most_recent = true
   owners = ["137112412989"]
@@ -18,41 +16,28 @@ resource "aws_instance" "server_linux" {
     Owner = "BIV"
     Project = "terraform L_web_serv"
     }
-    vpc_security_group_ids = [aws_security_group.linux_web_server.id] #there is the link to instraction, but could link to existing Security group ID, in those format ["sg-05d7ff38f60e64657"]
+    #there is the link to instraction, but could link to existing Security group ID, in those format ["sg-05d7ff38f60e64657"]
+    vpc_security_group_ids = [aws_security_group.linux_web_server.id] 
     volume_tags = {
     Name = "Linux WebServ Volume"
     }
-
-/*
-/*-Bootstraping is commands for automaticle start/ EOF-end of file
-it's shell script
-   user_data = <<-EOF
-#!/usr/bin/bash
-sudo yum -y update                                                                                              #update linux
-sudo yum -y install httpd                                                                                       #install Apache web server             
-myip= 'curl http://169.254.169.254/latest/meta-data/local-ipv4'                                                                    #read local AWS IP-address of server
-echo "<h2>WebServer with IP: $myip</h2><br>Build by Terraform on Linux AWS, changed of myself!!!" > /var/www/html/index.html       #echo the phrase in this file of the web server
-sudo service httpd start                                                                                         #start Apache server
-chkconfig httpd on                                                                                               #command for restart with Apache
-EOF
-*/
 }
 
 resource "aws_security_group" "linux_web_server" {
   name        = "linux_web_security_group"
   description = "Allow TLS inbound traffic"
-  # vpc_id      = aws_vpc.main.id - #we can commenting because will be Default 
+  # vpc_id      = aws_vpc.main.id - #we can commenting because will be Default vpc-2472c659
 
 # incoming traffic. HTTP,https,SSH,UNIX-systems access from anywhere"
   dynamic "ingress" {
 
-    for_each = ["80","443","22", "3000"] #3000 for Unix system
+    for_each = ["80","443","22","3000"] #3000 for Unix system
     
     content {
       from_port        = ingress.value
       to_port          = ingress.value
       protocol         = "tcp"
-      cidr_blocks      = ["0.0.0.0/0"] # from anyway internet
+      cidr_blocks      = ["46.242.15.66/16"] #--0.0.0.0/0 from anyway internet
     }
   }
 
@@ -60,7 +45,7 @@ resource "aws_security_group" "linux_web_server" {
     from_port        = 0
     to_port          = 0
     protocol         = "-1" # mean all of port and protocol
-    cidr_blocks      = ["0.0.0.0/0"]
+    cidr_blocks      = ["46.242.15.66/16"]
   }
 
   tags = {
