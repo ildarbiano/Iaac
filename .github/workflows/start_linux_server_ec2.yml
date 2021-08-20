@@ -1,4 +1,4 @@
-name: Start-Linux-AWS-server
+name: Start Linux Server ec2
 on: workflow_dispatch          
 
 jobs:    
