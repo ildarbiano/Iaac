@@ -11,6 +11,7 @@ resource "aws_instance" "server_linux" {
     count = 1
     ami = data.aws_ami.latest_aws_linux_ami.id  #AMI of Linux AWS 
     instance_type = "t2.micro"
+    key_name = "Linux_AWS_Key"
     tags = {
     Name = "Linux AWS"
     Owner = "BIV"
@@ -54,7 +55,7 @@ resource "aws_security_group" "linux_web_server" {
 }
 
 resource "aws_key_pair" "mobaLx" {
-  key_name   = "Linux AWS Key"
+  key_name   = "Linux_AWS_Key"
   public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCeUPCJwBz5OEB0mwidKAND1U/91BzekSXkJ3/C35IrOPMNSDouTvd9qbLQfKyTwok9TiDxC5nJIfbnpQDacDnHke7dcL2N9oVSRx3nIDirwib73gZtMVYq+Gef7J7cws3Lp/b/RX/hQvf/kPvgFKOLrMj5N1dMUL05q2sZTBigWiIBkmC7e9ck32tU05TixmFL+drYSW+i318UT1HwhqbfrtRhl0MN+o/LaNsZhyc0HbSsTxysO5CmQtB0U6IAleuNe4gwCXgxuNDDbqsWEyHKT1LZ982mautFPUBMDLCdXpOUznHzsdN1qrU5FzrlClEUEE1jCm9vM6Y9sHG5xkSZ ilya@HP"
 }
 
