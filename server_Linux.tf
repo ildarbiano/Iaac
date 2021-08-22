@@ -1,4 +1,3 @@
-/*
 #--Find latest AMI ID for AWS.Linux for any region where the instance start
 data "aws_ami" "latest_aws_linux_ami" {
   most_recent = true
@@ -24,4 +23,4 @@ resource "aws_instance" "server_linux" {
     Name = "Linux WebServ Volume"
     }
 }
-*/
+
