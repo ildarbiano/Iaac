@@ -11,7 +11,7 @@ resource "aws_instance" "server_linux" {
     count = 1
     ami = data.aws_ami.latest_aws_linux_ami.id  #AMI of Linux AWS 
     instance_type = "t2.micro"
-    key_name = "Linux_AWS_Key"
+    key_name = var.name_key_fingerprint
     tags = {
     Name = "Linux AWS"
     Owner = "BIV"
