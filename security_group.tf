@@ -20,7 +20,7 @@ resource "aws_security_group" "linux_web_server" {
     from_port        = 0
     to_port          = 0
     protocol         = "-1" # mean all of port and protocol
-    cidr_blocks      = ["0.0.0.0/16"]
+    cidr_blocks      = ["0.0.0.0/0"]
   }
 
   tags = {
