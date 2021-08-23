@@ -6,7 +6,7 @@ resource "aws_security_group" "linux_web_server" {
 # incoming traffic. HTTP,https,SSH,UNIX-systems access from anywhere"
   dynamic "ingress" {
 
-    for_each = ["80","443","22","3000"] #3000 for Unix system
+    for_each = ["80","443","22","3000","9090"] #3000 for Unix system
     
     content {
       from_port        = ingress.value
