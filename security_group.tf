@@ -12,7 +12,7 @@ resource "aws_security_group" "linux_web_server" {
       from_port        = ingress.value
       to_port          = ingress.value
       protocol         = "tcp"
-      cidr_blocks      = ["46.242.12.164/32"] #--0.0.0.0/0 from anyway internet
+      cidr_blocks      = ["90.154.72.226/32"] #--0.0.0.0/0 from anyway internet
     }
   }
 
